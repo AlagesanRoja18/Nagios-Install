@@ -9,12 +9,9 @@ ls -l
 ./configure --with-httpd-conf=/etc/apache2/sites-enabled
 make all
 make install
-make install-init
-make install-commandmode
+sudo make install-init && sudo make install-commandmode
 systemctl enable nagios.service
-make install-config
-make install-webconf 
-htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin |grep
-a2enmod cgi
-sudo systemctl restart apache2 && systemctl start nagios && systemctl enable nagios
+sudo make install-config && sudo make install-webconf  && sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin 
+sudo a2enmod cgi
+sudo systemctl restart apache2 && sudo systemctl start nagios && sudo systemctl enable nagios
 
