@@ -19,4 +19,4 @@ a2enmod cgi
 systemctl restart apache2
 systemctl start nagios
 systemctl enable nagios
-http://IP-Address/nagios
+
