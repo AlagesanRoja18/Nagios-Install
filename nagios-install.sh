@@ -13,10 +13,8 @@ make install-init
 make install-commandmode
 systemctl enable nagios.service
 make install-config
-make install-webconf
-htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+make install-webconf 
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin |grep
 a2enmod cgi
-sudo systemctl restart apache2
-sudo systemctl start nagios
-sudo systemctl enable nagios
+sudo systemctl restart apache2 && systemctl start nagios && systemctl enable nagios
 
