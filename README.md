@@ -16,6 +16,10 @@ tar xzf nagios-4.4.6.tar.gz
 
 cd nagios-4.4.6/
 
+sudo apt-get install nagios-plugins
+
+cp /usr/lib/nagios/plugins/check_* /usr/local/nagios/libexec
+
 ls -l
 
 ./configure --with-httpd-conf=/etc/apache2/sites-enabled
